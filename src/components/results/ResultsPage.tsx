@@ -1,4 +1,5 @@
 import { results } from '../../data/results';
+import { resultsColumnWidths } from '../columnWidths';
 import { ResultsRow } from './ResultsRow';
 
 export function ResultsPage() {
@@ -8,7 +9,11 @@ export function ResultsPage() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '5em 5em 3em 3em 3em',
+          gridTemplateColumns: `${resultsColumnWidths[0]} 
+            ${resultsColumnWidths[1]} 
+            ${resultsColumnWidths[2]} 
+            ${resultsColumnWidths[3]} 
+            ${resultsColumnWidths[4]}`,
           gridTemplateRows: 'repeat(auto)',
         }}
       >

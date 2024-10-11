@@ -1,5 +1,6 @@
 import React from 'react';
 import { Result } from '../../types';
+import { resultsColumnWidths } from '../columnWidths';
 
 interface ResultsRowProps {
   result: Result;
@@ -10,7 +11,11 @@ export const ResultsRow: React.FC<ResultsRowProps> = React.memo(({ result }: Res
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: '5em 5em 3em 3em 3em',
+        gridTemplateColumns: `${resultsColumnWidths[0]} 
+            ${resultsColumnWidths[1]} 
+            ${resultsColumnWidths[2]} 
+            ${resultsColumnWidths[3]} 
+            ${resultsColumnWidths[4]}`,
         gridTemplateRows: 'repeat(auto)',
       }}
     >
