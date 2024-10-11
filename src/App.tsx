@@ -1,17 +1,11 @@
-import React from 'react';
-import './App.css';
-import { ResultsPage } from './components/results/ResultsPage';
-//import { ResultsPage } from './components/results';
+import { Outlet } from 'react-router-dom';
+import { Header } from './components/Header';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <div>Lowlands Box League</div>
-        <ResultsPage />
-      </header>
-    </div>
+    <>
+      <Header />
+      <Outlet />
+    </>
   );
 }
-
-export default App;
