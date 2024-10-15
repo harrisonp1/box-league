@@ -1,6 +1,7 @@
 import { players } from '../../data/players';
 import { playersColumnWidths } from '../columnWidths';
 import { PlayerRow } from './PlayerRow';
+import { Button } from 'primereact/button';
 
 export function PlayersPage() {
   return (
@@ -33,7 +34,8 @@ export function PlayersPage() {
             return <PlayerRow player={player} />;
           })}
         </div>
-        <div style={{ flex: 1 }}>Add Player Button</div>
+        {/* <div style={{ flex: 1 }}>Add Player Button</div> */}
+        <Button>Add Player</Button>
       </div>
     </div>
   );
