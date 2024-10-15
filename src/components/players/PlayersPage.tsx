@@ -1,42 +1,28 @@
 import { players } from '../../data/players';
-import { playersColumnWidths } from '../columnWidths';
-import { PlayerRow } from './PlayerRow';
-import { Button } from 'primereact/button';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
 
 export function PlayersPage() {
+  const footer = `There are ${players.length} players in total`;
   return (
     <div className="text-center p-5">
-      <h2 className="text-xl font-bold text-slate-600">Players Page</h2>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          paddingTop: '2em',
-          alignItems: 'center',
-        }}
+      <DataTable
+        value={players}
+        tableStyle={{ minWidth: '50rem' }}
+        footer={footer}
+        header="Players"
+        stripedRows
+        paginator
+        rows={5}
+        sortMode="multiple"
+        removableSort
+        dataKey="id"
+        emptyMessage="No customers found."
       >
-        <div
-          style={{
-            flex: 1,
-            display: 'grid',
-            gridTemplateColumns: `${playersColumnWidths[0]} 
-            ${playersColumnWidths[1]} 
-            ${playersColumnWidths[2]}`,
-            gridTemplateRows: 'repeat(auto)',
-          }}
-        >
-          <div style={{ gridColumn: 1, gridRow: 1 }}>Id</div>
-          <div style={{ gridColumn: 2, gridRow: 1 }}>Name</div>
-          <div style={{ gridColumn: 3, gridRow: 1 }}>Division</div>
-        </div>
-        <div style={{ flex: 1 }}>
-          {players.map((player, i) => {
-            return <PlayerRow player={player} />;
-          })}
-        </div>
-        {/* <div style={{ flex: 1 }}>Add Player Button</div> */}
-        <Button>Add Player</Button>
-      </div>
+        <Column field="id" header="Id"></Column>
+        <Column field="name" header="Name" sortable style={{ width: '20rem' }}></Column>
+        <Column field="div" header="Division" sortable></Column>
+      </DataTable>
     </div>
   );
 }
