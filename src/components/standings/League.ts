@@ -1,0 +1,97 @@
+import { Match } from '../../types';
+
+interface PlayerStats {
+  played: number;
+  won: number;
+  lost: number;
+  drawn: number;
+  points: number;
+}
+
+class League {
+  private matches: Match[];
+  private table: { [player: string]: PlayerStats };
+
+  constructor(matches: Match[]) {
+    this.matches = matches;
+    this.table = {};
+  }
+
+  getStandings(): { [player: string]: PlayerStats } {
+    this.matches.forEach((match) => {
+      const { player1, player2 } = match;
+
+      // add teams to the table
+      if (!this.table[player1]) this.addToTable(player1);
+      if (!this.table[player2]) this.addToTable(player2);
+
+      // increase the played counter
+      this.increasePlayed([player1, player2]);
+
+      // calculate won, lost, points
+      this.setResults(match);
+    });
+
+    // return the final table
+    return this.table;
+  }
+
+  private addToTable(player: string): void {
+    this.table[player] = {
+      played: 0,
+      won: 0,
+      lost: 0,
+      drawn: 0,
+      points: 0,
+    };
+  }
+
+  private increasePlayed(teams: string[]): void {
+    teams.forEach((team) => {
+      if (this.table[team]) {
+        this.table[team].played++;
+      }
+    });
+  }
+
+  private setResults(match: Match): void {
+    const {
+      player1,
+      player2,
+      set1player1games,
+      set1player2games,
+      set2player1games,
+      set2player2games,
+      set3player1points,
+      set3player2points,
+    } = match;
+
+    const player1set1winner = set1player1games > set1player2games;
+    const player1set2winner = set2player1games > set2player2games;
+    const set3played = set3player1points !== null && set3player2points !== null;
+    const player1set3winner = set3played ? set3player1points > set3player2points : false;
+
+    // set won / lost
+    if (
+      (player1set1winner && player1set2winner) ||
+      (player1set1winner && player1set3winner) ||
+      (player1set2winner && player1set3winner)
+    ) {
+      this.table[player1].won++;
+      this.table[player1].points = this.table[player1].points + 5;
+      this.table[player2].lost++;
+      if (set3played) {
+        this.table[player2].points = this.table[player2].points + 1;
+      }
+    } else {
+      this.table[player2].won++;
+      this.table[player2].points = this.table[player2].points + 5;
+      this.table[player1].lost++;
+      if (set3played) {
+        this.table[player1].points = this.table[player1].points + 1;
+      }
+    }
+  }
+}
+
+export default League;
