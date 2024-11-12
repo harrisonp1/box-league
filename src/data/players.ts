@@ -13,67 +13,82 @@ export const players: Player[] = [
   },
   {
     id: 3,
-    name: 'Phil Lewis',
-    div: 1,
-  },
-  {
-    id: 4,
-    name: 'Rupert Bishop',
-    div: 1,
-  },
-  {
-    id: 5,
-    name: 'Peter McMullan',
-    div: 1,
-  },
-  {
-    id: 6,
     name: 'Farid Agha',
     div: 1,
   },
   {
-    id: 7,
-    name: 'Henry Jiang',
-    div: 1,
-  },
-  {
-    id: 8,
+    id: 4,
     name: 'Shane Long',
     div: 1,
   },
   {
-    id: 9,
+    id: 5,
+    name: 'Nishil Malde',
+    div: 1,
+  },
+  {
+    id: 6,
+    name: 'Ben Steptoe',
+    div: 1,
+  },
+  {
+    id: 7,
+    name: 'Sandip Patel',
+    div: 1,
+  },
+  {
+    id: 8,
     name: 'Shailen Devani',
     div: 2,
   },
   {
+    id: 9,
+    name: 'Steve OLeary',
+    div: 2,
+  },
+  {
     id: 10,
-    name: 'Nishil Malde',
+    name: 'Lester Hartnett',
     div: 2,
   },
   {
     id: 11,
-    name: 'Keith Ventin',
+    name: 'Andy Khan Craig',
     div: 2,
   },
   {
     id: 12,
-    name: 'Sudipto Sen',
+    name: 'Declan Dean-Joseph',
     div: 2,
   },
   {
     id: 13,
-    name: 'Rajinder Rana',
+    name: 'Matt Atack',
     div: 2,
   },
   {
     id: 14,
-    name: 'Joe Jordan',
+    name: 'Keith Ventin',
     div: 2,
   },
   {
     id: 15,
-    name: 'Kurtis OBrien',
+    name: 'Rajat Solan',
+    div: 2,
+  },
+  {
+    id: 16,
+    name: 'Greg Lloyd',
+    div: 2,
+  },
+  {
+    id: 17,
+    name: 'Rupin Nathwani',
+    div: 2,
+  },
+  {
+    id: 18,
+    name: 'Aryan Sankaye',
     div: 2,
   },
 ];

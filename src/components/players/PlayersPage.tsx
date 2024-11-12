@@ -1,56 +1,42 @@
 import { players } from '../../data/players';
-import { DataTable, DataTableFilterMeta } from 'primereact/datatable';
+import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { useState } from 'react';
-import { FilterMatchMode } from 'primereact/api';
-import { InputText } from 'primereact/inputtext';
+import { Player } from '../../types';
 
 export function PlayersPage() {
-  const [filters, setFilters] = useState<DataTableFilterMeta>({
-    global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-  });
+  const [filteredPlayers, setFilteredPlayers] = useState<Player[]>(
+    players.filter((player) => player.div.toString().includes('1')),
+  );
+  const [divFilter, setDivFilter] = useState<string>('1');
 
-  const footer = `There are ${players.length} players in total`;
-  // const onFilterMine = (e: HTMLInputElement) => {
-  //   const myVal: HTMLInputElement = e;
-  //   setFilters({ global: { value: myVal, matchMode: FilterMatchMode.CONTAINS } });
-  // };
+  const footer = `There are ${filteredPlayers.length} players in this division`;
+
+  const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const filterValue = event.target.value;
+    setDivFilter(filterValue);
+
+    // Filter players by the div value (if the input is not empty)
+    const filtered = players.filter((player) => player.div.toString().includes(filterValue));
+
+    setFilteredPlayers(filtered);
+  };
 
   return (
-    <div className="text-center p-5">
-      <InputText
-        onInput={(e) => {
-          setFilters({
-            global: { value: e.currentTarget.value, matchMode: FilterMatchMode.CONTAINS },
-          });
-        }}
-      />
+    <div className="text-center p-5 grid place-items-center">
+      <select value={divFilter} onChange={handleFilterChange}>
+        <option value={1}>Division 1</option>
+        <option value={2}>Division 2</option>
+      </select>
 
       <DataTable
-        value={players}
+        value={filteredPlayers}
         tableStyle={{ minWidth: '50rem' }}
         footer={footer}
-        header="Players"
         stripedRows
-        paginator
-        rows={5}
-        sortMode="multiple"
-        removableSort
-        filters={filters}
-        // filterDisplay="row"
-        // onFilter={(e) => onFilterMine(e)}
-        emptyMessage="No customers found."
+        rows={15}
       >
-        <Column field="id" header="Id"></Column>
-        <Column
-          field="name"
-          header="Name"
-          sortable
-          // filter
-          // filterPlaceholder="Search by name"
-          style={{ width: '20rem' }}
-        ></Column>
-        <Column field="div" header="Division" sortable></Column>
+        <Column field="name" header="Name" style={{ width: '20rem' }}></Column>
       </DataTable>
     </div>
   );

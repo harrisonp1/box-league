@@ -7,7 +7,7 @@ export interface Player {
 }
 
 export interface Match {
-  id: number;
+  //id: number;
   player1: string;
   player2: string;
   set1player1games: number;
@@ -29,4 +29,11 @@ export interface Table {
 export interface PlayersFilter {
   value: string;
   matchMode: FilterMatchMode;
+}
+
+export interface PlayerStats {
+  played: number;
+  won: number;
+  lost: number;
+  points: number;
 }

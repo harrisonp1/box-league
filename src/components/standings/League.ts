@@ -1,12 +1,4 @@
-import { Match } from '../../types';
-
-interface PlayerStats {
-  played: number;
-  won: number;
-  lost: number;
-  drawn: number;
-  points: number;
-}
+import { Match, PlayerStats } from '../../types';
 
 class League {
   private matches: Match[];
@@ -32,8 +24,22 @@ class League {
       this.setResults(match);
     });
 
-    // return the final table
-    return this.table;
+    // Sort the players in the table by their points
+    const sortedTable = Object.entries(this.table)
+      .sort((a, b) => {
+        const pointsA = a[1].points;
+        const pointsB = b[1].points;
+        return pointsB - pointsA; // descending order
+      })
+      .reduce(
+        (acc, [player, stats]) => {
+          acc[player] = stats;
+          return acc;
+        },
+        {} as { [player: string]: PlayerStats },
+      );
+
+    return sortedTable;
   }
 
   private addToTable(player: string): void {
@@ -41,7 +47,6 @@ class League {
       played: 0,
       won: 0,
       lost: 0,
-      drawn: 0,
       points: 0,
     };
   }
