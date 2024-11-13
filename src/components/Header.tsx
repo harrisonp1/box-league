@@ -2,9 +2,9 @@ import { NavLink } from 'react-router-dom';
 
 export function Header() {
   return (
-    <header className="text-center text-slate-50 bg-slate-900 h-40 p-5">
+    <header className="text-center text-slate-50 bg-slate-900 h-30 p-5">
       <h1 className="text-2xl">Lowlands Box League</h1>
-      <nav style={{ display: 'flex', paddingTop: '2em' }}>
+      <nav style={{ display: 'flex', paddingTop: '1em' }}>
         <NavLink
           to="players"
           className={({ isActive }) =>

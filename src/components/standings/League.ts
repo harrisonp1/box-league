@@ -9,7 +9,7 @@ class League {
     this.table = {};
   }
 
-  getStandings(): { [player: string]: PlayerStats } {
+  getStandings(div: number): { [player: string]: PlayerStats } {
     this.matches.forEach((match) => {
       const { player1, player2 } = match;
 
@@ -17,15 +17,19 @@ class League {
       if (!this.table[player1]) this.addToTable(player1);
       if (!this.table[player2]) this.addToTable(player2);
 
+      // add division
+      this.addDivision(match);
+
       // increase the played counter
       this.increasePlayed([player1, player2]);
 
       // calculate won, lost, points
-      this.setResults(match);
+      this.addResults(match);
     });
 
     // Sort the players in the table by their points
     const sortedTable = Object.entries(this.table)
+      .filter(([key, stats]) => stats.div === div)
       .sort((a, b) => {
         const pointsA = a[1].points;
         const pointsB = b[1].points;
@@ -44,6 +48,7 @@ class League {
 
   private addToTable(player: string): void {
     this.table[player] = {
+      div: 0,
       played: 0,
       won: 0,
       lost: 0,
@@ -59,7 +64,13 @@ class League {
     });
   }
 
-  private setResults(match: Match): void {
+  private addDivision(match: Match): void {
+    const { div, player1, player2 } = match;
+    this.table[player1].div = div;
+    this.table[player2].div = div;
+  }
+
+  private addResults(match: Match): void {
     const {
       player1,
       player2,
@@ -76,7 +87,7 @@ class League {
     const set3played = set3player1points !== null && set3player2points !== null;
     const player1set3winner = set3played ? set3player1points > set3player2points : false;
 
-    // set won / lost
+    // add won / lost
     if (
       (player1set1winner && player1set2winner) ||
       (player1set1winner && player1set3winner) ||

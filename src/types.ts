@@ -7,7 +7,7 @@ export interface Player {
 }
 
 export interface Match {
-  //id: number;
+  div: number;
   player1: string;
   player2: string;
   set1player1games: number;
@@ -32,6 +32,7 @@ export interface PlayersFilter {
 }
 
 export interface PlayerStats {
+  div: number;
   played: number;
   won: number;
   lost: number;
