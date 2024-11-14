@@ -16,6 +16,9 @@ export interface Match {
   set2player2games: number;
   set3player1points: number | null;
   set3player2points: number | null;
+  set1score?: string;
+  set2score?: string;
+  set3score?: string;
 }
 
 export interface Table {

@@ -16,7 +16,7 @@ export function StandingsPage() {
   console.log(table);
 
   return (
-    <div className="text-center p-5 w-1/2 grid place-items-center">
+    <div className="text-center p-5 grid place-items-center">
       <select value={divFilter} onChange={handleFilterChange}>
         <option value={1}>Division 1</option>
         <option value={2}>Division 2</option>

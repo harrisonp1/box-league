@@ -24,12 +24,7 @@ const LeagueTable: React.FC<LeagueTableProps> = ({ table }) => {
 
   return (
     <div>
-      <DataTable
-        value={flatten}
-        tableStyle={{ minWidth: '50rem' }}
-        header="League Standings"
-        stripedRows
-      >
+      <DataTable value={flatten} tableStyle={{ minWidth: '50rem' }} stripedRows>
         <Column field="player" header="Player"></Column>
         <Column field="played" header="P"></Column>
         <Column field="won" header="W"></Column>
