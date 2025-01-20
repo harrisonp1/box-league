@@ -96,6 +96,7 @@ class League {
       this.table[player1].won++;
       this.table[player1].points = this.table[player1].points + 5;
       this.table[player2].lost++;
+      this.table[player2].points = this.table[player2].points + 1;
       if (set3played) {
         this.table[player2].points = this.table[player2].points + 1;
       }
@@ -103,6 +104,7 @@ class League {
       this.table[player2].won++;
       this.table[player2].points = this.table[player2].points + 5;
       this.table[player1].lost++;
+      this.table[player1].points = this.table[player1].points + 1;
       if (set3played) {
         this.table[player1].points = this.table[player1].points + 1;
       }
