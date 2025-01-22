@@ -1,9 +1,22 @@
 import { FilterMatchMode } from 'primereact/api';
 
+export enum StatusEnum {
+  Playing,
+  Injured,
+}
+
+export const StatusEnumReverse: { [status in StatusEnum]: Status } = {
+  0: 'Playing',
+  1: 'Injured',
+};
+
+export type Status = keyof typeof StatusEnum;
+
 export interface Player {
   id: number;
   name: string;
   div: number;
+  status: StatusEnum;
 }
 
 export interface Match {
@@ -36,6 +49,7 @@ export interface PlayersFilter {
 
 export interface PlayerStats {
   div: number;
+  status: string;
   played: number;
   won: number;
   lost: number;

@@ -26,6 +26,7 @@ const LeagueTable: React.FC<LeagueTableProps> = ({ table }) => {
     <div>
       <DataTable value={flatten} tableStyle={{ minWidth: '50rem' }} stripedRows>
         <Column field="player" header="Player"></Column>
+        <Column field="status" style={{ color: 'red', fontStyle: 'italic' }}></Column>
         <Column field="played" header="P"></Column>
         <Column field="won" header="W"></Column>
         <Column field="lost" header="L"></Column>

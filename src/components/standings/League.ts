@@ -1,4 +1,5 @@
-import { Match, PlayerStats } from '../../types';
+import { players } from '../../data/players';
+import { Match, PlayerStats, StatusEnum, StatusEnumReverse } from '../../types';
 
 class League {
   private matches: Match[];
@@ -9,13 +10,29 @@ class League {
     this.table = {};
   }
 
+  getPlayerStatus = (playerName: string) => {
+    const player = players.find((p) => p.name === playerName);
+    const status =
+      player === undefined || player.status === StatusEnum.Playing
+        ? ''
+        : StatusEnumReverse[player.status];
+    return status;
+  };
+
   getStandings(div: number): { [player: string]: PlayerStats } {
     this.matches.forEach((match) => {
       const { player1, player2 } = match;
+      const player1Status = this.getPlayerStatus(player1);
+      const player2Status = this.getPlayerStatus(player2);
 
-      // add teams to the table
-      if (!this.table[player1]) this.addToTable(player1);
-      if (!this.table[player2]) this.addToTable(player2);
+      // add players to the table
+      if (!this.table[player1]) {
+        this.addToTable(player1, player1Status);
+      }
+
+      if (!this.table[player2]) {
+        this.addToTable(player2, player2Status);
+      }
 
       // add division
       this.addDivision(match);
@@ -46,9 +63,10 @@ class League {
     return sortedTable;
   }
 
-  private addToTable(player: string): void {
+  private addToTable(player: string, status: string): void {
     this.table[player] = {
       div: 0,
+      status: status,
       played: 0,
       won: 0,
       lost: 0,
