@@ -4,7 +4,6 @@ import { PlayersPage } from './components/players/PlayersPage';
 import { ResultsPage } from './components/results/ResultsPage';
 import { StandingsPage } from './components/standings/StandingsPage';
 import { AdminPage } from './components/admin/AdminPage';
-import { AboutPage } from './components/AboutPage';
 
 const router = createBrowserRouter([
   {
@@ -26,10 +25,6 @@ const router = createBrowserRouter([
       {
         path: 'admin',
         element: <AdminPage />,
-      },
-      {
-        path: 'about',
-        element: <AboutPage />,
       },
     ],
   },

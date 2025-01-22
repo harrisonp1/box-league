@@ -37,14 +37,6 @@ export function Header() {
         >
           Admin
         </NavLink>
-        <NavLink
-          to="about"
-          className={({ isActive }) =>
-            `text-white no-underline p-1 pb-0.5 border-solid border-b-2 flex-1 ${isActive ? 'border-white' : 'border-transparent'}`
-          }
-        >
-          About
-        </NavLink>
       </nav>
     </header>
   );
