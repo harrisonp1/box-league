@@ -25,8 +25,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -54,8 +52,6 @@
     "eslint-plugin-prettier": "^5.2.1",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
-    "tailwindcss": "^3.4.13",
-    "gh-pages": "^2.0.1"
-  },
-  "homepage": "https://harrisonp1.github.io/box-league/"
+    "tailwindcss": "^3.4.13"
+  }
 }
