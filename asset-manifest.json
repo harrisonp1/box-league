@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/box-league/static/css/main.e9140dca.css",
+    "main.js": "/box-league/static/js/main.69ca7a86.js",
+    "static/js/453.04fc4a3a.chunk.js": "/box-league/static/js/453.04fc4a3a.chunk.js",
+    "static/media/primeicons.svg": "/box-league/static/media/primeicons.6ed59f962963a4a73af2.svg",
+    "static/media/primeicons.eot": "/box-league/static/media/primeicons.ff0c4cd79b2ffca2de54.eot",
+    "static/media/primeicons.woff": "/box-league/static/media/primeicons.8931fda1930c3bd21e96.woff",
+    "static/media/primeicons.ttf": "/box-league/static/media/primeicons.a5c2a53d1ff7a9ff5933.ttf",
+    "static/media/primeicons.woff2": "/box-league/static/media/primeicons.024b32cc7bf399b1a847.woff2",
+    "index.html": "/box-league/index.html",
+    "main.e9140dca.css.map": "/box-league/static/css/main.e9140dca.css.map",
+    "main.69ca7a86.js.map": "/box-league/static/js/main.69ca7a86.js.map",
+    "453.04fc4a3a.chunk.js.map": "/box-league/static/js/453.04fc4a3a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e9140dca.css",
+    "static/js/main.69ca7a86.js"
+  ]
+}
