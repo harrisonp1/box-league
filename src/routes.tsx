@@ -1,11 +1,11 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import { PlayersPage } from './components/players/PlayersPage';
 import { ResultsPage } from './components/results/ResultsPage';
 import { StandingsPage } from './components/standings/StandingsPage';
 import { AdminPage } from './components/admin/AdminPage';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <App />,
