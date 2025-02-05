@@ -2,6 +2,8 @@ import { Match } from '../types';
 
 export const matches: Match[] = [
   {
+    season: '24/25',
+    round: 1,
     div: 1,
     player1: 'Sandip Patel',
     player2: 'Ben Steptoe',
@@ -13,6 +15,8 @@ export const matches: Match[] = [
     set3player2points: null,
   },
   {
+    season: '24/25',
+    round: 1,
     div: 1,
     player1: 'Sandip Patel',
     player2: 'Farid Agha',
@@ -24,6 +28,8 @@ export const matches: Match[] = [
     set3player2points: null,
   },
   {
+    season: '24/25',
+    round: 1,
     div: 1,
     player1: 'Ben Steptoe',
     player2: 'Nishil Malde',
@@ -35,6 +41,8 @@ export const matches: Match[] = [
     set3player2points: 8,
   },
   {
+    season: '24/25',
+    round: 1,
     div: 1,
     player1: 'Ben Steptoe',
     player2: 'Farid Agha',
@@ -46,6 +54,8 @@ export const matches: Match[] = [
     set3player2points: 10,
   },
   {
+    season: '24/25',
+    round: 1,
     div: 1,
     player1: 'Nishil Malde',
     player2: 'Farid Agha',
@@ -57,6 +67,8 @@ export const matches: Match[] = [
     set3player2points: null,
   },
   {
+    season: '24/25',
+    round: 1,
     div: 1,
     player1: 'Nic Gunby',
     player2: 'Paul Harrison',
@@ -68,6 +80,8 @@ export const matches: Match[] = [
     set3player2points: null,
   },
   {
+    season: '24/25',
+    round: 1,
     div: 1,
     player1: 'Nic Gunby',
     player2: 'Ben Steptoe',
@@ -79,6 +93,8 @@ export const matches: Match[] = [
     set3player2points: null,
   },
   {
+    season: '24/25',
+    round: 1,
     div: 2,
     player1: 'Greg Lloyd',
     player2: 'Lester Hartnett',
@@ -90,6 +106,8 @@ export const matches: Match[] = [
     set3player2points: null,
   },
   {
+    season: '24/25',
+    round: 1,
     div: 2,
     player1: "Steve O'Leary",
     player2: 'Shailen Devani',

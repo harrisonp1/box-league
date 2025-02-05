@@ -20,6 +20,8 @@ export interface Player {
 }
 
 export interface Match {
+  season: string;
+  round: number;
   div: number;
   player1: string;
   player2: string;
@@ -48,6 +50,8 @@ export interface PlayersFilter {
 }
 
 export interface PlayerStats {
+  season: string;
+  round: number;
   div: number;
   status: string;
   played: number;

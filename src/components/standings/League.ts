@@ -19,7 +19,7 @@ class League {
     return status;
   };
 
-  getStandings(div: number): { [player: string]: PlayerStats } {
+  getStandings(season: string, round: number, div: number): { [player: string]: PlayerStats } {
     this.matches.forEach((match) => {
       const { player1, player2 } = match;
       const player1Status = this.getPlayerStatus(player1);
@@ -34,6 +34,12 @@ class League {
         this.addToTable(player2, player2Status);
       }
 
+      // add season
+      this.addSeason(match);
+
+      // add season
+      this.addRound(match);
+
       // add division
       this.addDivision(match);
 
@@ -46,7 +52,9 @@ class League {
 
     // Sort the players in the table by their points
     const sortedTable = Object.entries(this.table)
-      .filter(([key, stats]) => stats.div === div)
+      .filter(
+        ([key, stats]) => stats.season === season && stats.round === round && stats.div === div,
+      )
       .sort((a, b) => {
         const pointsA = a[1].points;
         const pointsB = b[1].points;
@@ -65,6 +73,8 @@ class League {
 
   private addToTable(player: string, status: string): void {
     this.table[player] = {
+      season: '',
+      round: 0,
       div: 0,
       status: status,
       played: 0,
@@ -80,6 +90,18 @@ class League {
         this.table[team].played++;
       }
     });
+  }
+
+  private addSeason(match: Match): void {
+    const { season, player1, player2 } = match;
+    this.table[player1].season = season;
+    this.table[player2].season = season;
+  }
+
+  private addRound(match: Match): void {
+    const { round, player1, player2 } = match;
+    this.table[player1].round = round;
+    this.table[player2].round = round;
   }
 
   private addDivision(match: Match): void {
